@@ -16,7 +16,7 @@ namespace lab1._1
 
             Console.WriteLine("Здравствуйте, " + name + "!");
 
-            Console.WriteLine("Фильм какого жанра, вы бы хотели посмотреть: комедия, фантастика?");
+            Console.WriteLine("Фильм какого жанра, вы бы хотели посмотреть: комедия, фантастика, драмма, ужасы?");
             String genre = Console.ReadLine();
 
             if (genre == "комедия")
@@ -29,13 +29,36 @@ namespace lab1._1
             }
             else if (genre == "фантастика")
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("В таком случае рекомендуем вам следующие фильмы:");
                 Console.WriteLine("* Люди Икс");
                 Console.WriteLine("* Гарри Поттер");
             }
-
-            Console.ReadLine();
+            else if (genre == "ужасы")
+            {
+                Console.WriteLine("Сколько вам лет?");
+                String yearString = Console.ReadLine();
+                int years = Int32.Parse(yearString);
+                if (years < 18)
+                {
+                    Console.WriteLine("К сожалению этот жанр доступен только дляпользвателей 18+");
+                    Console.WriteLine("Прходите через " + (18 - years) + " года.");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("В таком случае рекомендуем вам следующие фильмы:");
+                    Console.WriteLine("* Оно");
+                    Console.WriteLine("* Пила 8");
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("В таком случае рекомендуем вам следующие фильмы:");
+                Console.WriteLine("* Зелёная миля");
+                Console.WriteLine("* Побег из Шоушенка");
+            }
         }
     }
 }
